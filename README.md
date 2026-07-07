@@ -171,6 +171,10 @@ flowcanva/
 | `EMBEDDED` | `false` | 嵌入模式 (从 exe 内置 FS 提供静态文件) |
 | `LOG_LEVEL` | `info` | 日志级别 (debug/info) |
 
+## 💬 交流反馈
+
+**QQ 群：894246232** —— 使用问题 / 功能建议 / Bug 反馈，欢迎加入交流。
+
 ## 📄 License
 
 [MIT](./LICENSE.md)
