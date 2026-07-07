@@ -1,0 +1,71 @@
+{
+  "node_configs": {
+    "text": {
+      "model_name": "GPT-4o",
+      "api_channel": "OpenAI",
+      "base_url": "https://api.openai.com/v1",
+      "parameters": { "temperature": 0.7, "top_p": 1.0, "max_tokens": 32768 },
+      "extra_config": {
+        "roles": [
+          { "key": "text", "label": "文本", "prompt": "" },
+          { "key": "lyrics", "label": "歌词", "prompt": "你是一位歌词创作专家，请根据用户要求创作歌词。" },
+          { "key": "translate", "label": "翻译", "prompt": "你是一位专业翻译，请准确翻译用户提供的文本。" },
+          { "key": "summary", "label": "总结", "prompt": "你是一位内容总结专家，请简洁准确地进行总结。" },
+          { "key": "code", "label": "代码", "prompt": "你是一位资深软件工程师，请根据要求编写高质量、可维护的代码。" },
+          { "key": "writer", "label": "写作", "prompt": "你是一位专业内容创作者，请根据用户要求创作高质量的文本内容。" }
+        ],
+        "models": [
+          { "name": "deepseek-v4-pro", "channel": "NXFL", "base_url": "https://api.nxfl.cc/v1", "api_key": "", "parameters": { "temperature": 0.7, "max_tokens": 32768 } },
+          { "name": "deepseek-v3", "channel": "DeepSeek", "base_url": "https://api.deepseek.com/v1", "api_key": "", "parameters": { "temperature": 0.7, "max_tokens": 32768 } },
+          { "name": "claude-opus-4-7", "channel": "NXFL", "base_url": "https://api.nxfl.cc/v1", "api_key": "", "parameters": { "temperature": 0.7, "max_tokens": 32768, "supports_vision": true } }
+        ]
+      }
+    },
+    "agent": {
+      "model_name": "deepseek-v4-pro",
+      "api_channel": "NXFL",
+      "base_url": "https://api.nxfl.cc/v1",
+      "parameters": { "temperature": 0.7, "top_p": 1.0, "max_tokens": 32768 },
+      "extra_config": {
+        "roles": [
+          { "key": "text", "label": "通用", "prompt": "" },
+          { "key": "lyrics", "label": "歌词", "prompt": "你是一位歌词创作专家，请根据用户要求创作歌词。" },
+          { "key": "translate", "label": "翻译", "prompt": "你是一位专业翻译，请准确翻译用户提供的文本。" },
+          { "key": "summary", "label": "总结", "prompt": "你是一位内容总结专家，请简洁准确地进行总结。" },
+          { "key": "code", "label": "代码", "prompt": "你是一位资深软件工程师，请根据要求编写高质量、可维护的代码。" },
+          { "key": "writer", "label": "写作", "prompt": "你是一位专业内容创作者，请根据用户要求创作高质量的文本内容。" }
+        ],
+        "models": [
+          { "name": "deepseek-v4-pro", "channel": "NXFL", "base_url": "https://api.nxfl.cc/v1", "api_key": "", "parameters": { "temperature": 0.7, "max_tokens": 32768 } },
+          { "name": "deepseek-v3", "channel": "DeepSeek", "base_url": "https://api.deepseek.com/v1", "api_key": "", "parameters": { "temperature": 0.7, "max_tokens": 32768 } },
+          { "name": "claude-opus-4-7", "channel": "NXFL", "base_url": "https://api.nxfl.cc/v1", "api_key": "", "parameters": { "temperature": 0.7, "max_tokens": 32768, "supports_vision": true } }
+        ]
+      }
+   },
+   "video": {
+     "model_name": "doubao-seedance-2-0-260128",
+     "api_channel": "NXFL",
+     "base_url": "https://api.nxfl.cc",
+     "extra_config": {
+       "models": [
+         { "name": "doubao-seedance-2-0-260128", "channel": "NXFL", "base_url": "https://api.nxfl.cc", "api_key": "", "parameters": {} },
+         { "name": "doubao-seedance-2-0-fast-260128", "channel": "NXFL", "base_url": "https://api.nxfl.cc", "api_key": "", "parameters": {} }
+       ]
+     }
+   },
+   "image": {
+     "model_name": "gemini-3-pro-image-preview-2k",
+     "api_channel": "NXFL",
+     "base_url": "https://api.nxfl.cc/v1",
+     "protocol": "chat",
+     "parameters": { "temperature": 0.7, "max_tokens": 32768 },
+     "extra_config": {
+       "models": [
+         { "name": "gemini-3.1-flash-image-preview-2k", "channel": "NXFL", "base_url": "https://api.nxfl.cc/v1", "api_key": "", "protocol": "chat", "parameters": { "temperature": 0.7 }, "path": "/chat/completions" },
+         { "name": "doubao-seedream-5-0-260128", "channel": "NXFL", "base_url": "https://api.nxfl.cc/v1", "api_key": "", "protocol": "edit", "parameters": { "temperature": 0.7, "supports_img2img": true } },
+         { "name": "gpt-image-2", "channel": "Local", "base_url": "http://localhost:8800/v1", "api_key": "", "protocol": "local", "parameters": { "temperature": 0.7 } }
+       ]
+     }
+    }
+  }
+}

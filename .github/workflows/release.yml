@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Build frontend-admin
+        run: cd frontend-admin && npm ci && npm run build
+
+      - name: Build frontend-canvas
+        run: cd frontend-canvas && npm ci && npm run build
+
+      - name: Copy dist into embed dirs
+        run: |
+          rm -rf backend/admin-dist backend/canvas-dist
+          cp -r frontend-admin/dist backend/admin-dist
+          cp -r frontend-canvas/dist backend/canvas-dist
+
+      - name: Build Windows exe (cross-compile, no cgo)
+        working-directory: backend
+        env:
+          GOOS: windows
+          GOARCH: amd64
+          CGO_ENABLED: '0'
+        run: go build -ldflags "-s -w" -o ../flowcanva.exe .
+
+      - name: Package release
+        run: |
+          mkdir -p release/flowcanva
+          cp flowcanva.exe README.md LICENSE.md release/flowcanva/
+          cd release && zip -r flowcanva.zip flowcanva
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            flowcanva.exe
+            release/flowcanva.zip
