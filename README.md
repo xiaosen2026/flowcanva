@@ -30,14 +30,14 @@
 - **图片生成**：支持 OpenAI 兼容通道 + ComfyUI 后端 + 本地模型
 - **视频生成**：对接 ComfyUI 视频工作流
 - 生成结果自动存入画布节点，支持预览、下载、分享
-- 内置 **SM.MS 图床** 一键托管上传
+- 内置 **SM.MS 图床**（免费无需注册，上传后得到公网 URL）一键托管上传
 
 ### 📦 多节点生态
 
 | 节点类型 | 能力 |
 |---------|------|
 | 📝 文本节点 | Markdown 渲染 + 编辑 + LLM 生成 |
-| 🖼️ 图片节点 | 生成 / 上传 / 链接 / 预览 |
+| 🖼️ 图片节点 | AI 生成 / 本地上传 / SM.MS 图床托管 / URL 链接 / 预览 / 下载 / 宫格裁切 |
 | 🎬 视频节点 | 生成 / 播放 / 下载 |
 | 📋 剧本节点 | 分镜剧本表格编辑,支持行列插入与表格粘贴 |
 | 🎬 导演台 | 3D 场景编排,角色/道具布局 (Three.js) |
@@ -45,7 +45,7 @@
 | 🌐 360° 全景 | 基于 Pannellum 的实景漫游 |
 | 🤖 智能体节点 | 多轮对话 + 角色扮演 + 工具调用 |
 | ⚙️ 工作流节点 | 跨画布引用，模块化编排 |
-| 📎 资产节点 | 文件上传 / Base64 / 链接 / 图床 |
+| 📎 资产节点 | 本地文件上传 / Base64 直连 / URL 链接 / SM.MS 图床托管 |
 
 ### 🚀 零依赖分发（用户端）
 - **一个 exe，双击即用** — 无需安装 Go、Node.js、Python
@@ -123,7 +123,7 @@ flowcanva/
 ├── /llm/chat                # LLM 对话 (OpenAI 兼容)
 ├── /images/generate         # AI 图片生成
 ├── /video/generate          # AI 视频生成
-├── /upload-image-host       # SM.MS 图床上传
+├── /upload-image-host       # SM.MS 图床上传（免费图床，上传后返回公网 URL）
 ├── /comfyui/execute         # ComfyUI 工作流执行
 ├── /comfyui/result/:id      # ComfyUI 结果轮询
 ├── /comfyui/proxy-view      # ComfyUI 图片代理
