@@ -11,6 +11,7 @@ Thumbs.db
 backend/.vite/
 *.tsbuildinfo
 *.png
+!png/*.png
 *.jpg
 *.jpeg
 release/
